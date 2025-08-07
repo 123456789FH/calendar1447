@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>توزيع الأسابيع الدراسية 1447هـ</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2b4c7e;
+    }
+    .week {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+    .title {
+      font-weight: bold;
+      font-size: 18px;
+      color: #205072;
+      margin-bottom: 10px;
+    }
+    .days {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+    }
+    .day {
+      background: #e0f7fa;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>توزيع الأسابيع الدراسية لعام 1447هـ / 1448هـ</h1>
+
+  <script>
+    const weeks = [
+      { title: "الأسبوع الأول", days: ["20/1<br>24/8", "21/1<br>25/8", "22/1<br>26/8", "23/1<br>27/8", "24/1<br>28/8"] },
+      { title: "الأسبوع الثاني", days: ["25/1<br>31/8", "26/1<br>1/9", "27/1<br>2/9", "28/1<br>3/9", "29/1<br>4/9"] },
+      { title: "الأسبوع الثالث", days: ["2/2<br>7/9", "3/2<br>8/9", "4/2<br>9/9", "5/2<br>10/9", "6/2<br>11/9"] },
+      { title: "الأسبوع الرابع", days: ["9/2<br>14/9", "10/2<br>15/9", "11/2<br>16/9", "12/2<br>17/9", "13/2<br>18/9"] },
+      { title: "الأسبوع الخامس", days: ["16/2<br>21/9", "17/2<br>22/9", "18/2<br>23/9 ", "19/2<br>24/9", "20/2<br>25/9"] },
+      { title: "الأسبوع السادس", days: ["23/2<br>28/9", "24/2<br>29/9", "25/2<br>30/9", "26/2<br>1/10", "27/2<br>2/10"] },
+      { title: "الأسبوع السابع", days: ["1/3<br>5/10", "2/3<br>6/10", "3/3<br>7/10", "4/3<br>8/10", "5/3<br>9/10"] },
+      { title: "الأسبوع الثامن", days: ["8/3<br>12/10", "9/3<br>13/10", "10/3<br>14/10", "11/3<br>15/10", "12/3<br>16/10"] },
+      { title: "الأسبوع التاسع", days: ["15/3<br>19/10", "16/3<br>20/10", "17/3<br>21/10", "18/3<br>22/10", "19/3<br>23/10"] },
+      { title: "الأسبوع العاشر", days: ["22/3<br>26/10", "23/3<br>27/10", "24/3<br>28/10", "25/3<br>29/10", "26/3<br>30/10"] },
+      { title: "الأسبوع الحادي عشر", days: ["29/3<br>2/11", "1/4<br>3/11", "2/4<br>4/11", "3/4<br>5/11", "4/4<br>6/11"] },
+      { title: "الأسبوع الثاني عشر", days: ["7/4<br>9/11", "8/4<br>10/11", "9/4<br>11/11", "10/4<br>12/11", "11/4<br>13/11"] },
+      { title: "الأسبوع الثالث عشر", days: ["14/4<br>16/11", "15/4<br>17/11", "16/4<br>18/11", "17/4<br>19/11", "18/4<br>20/11"] },
+      { title: "الأسبوع الرابع عشر", days: ["21/4<br>23/11", "22/4<br>24/11", "23/4<br>25/11", "24/4<br>26/11", "25/4<br>27/11"] },
+      { title: "الأسبوع الخامس عشر", days: ["28/4<br>30/11", "29/4<br>1/12", "1/5<br>2/12", "2/5<br>3/12", "3/5<br>4/12"] },
+      { title: "الأسبوع السادس عشر", days: ["6/5<br>7/12", "7/5<br>8/12", "8/5<br>9/12", "9/5<br>10/12", "10/5<br>11/12"] },
+      { title: "الأسبوع السابع عشر", days: ["13/5<br>14/12", "14/5<br>15/12", "15/5<br>16/12", "16/5<br>17/12", "17/5<br>18/12"] },
+      { title: "الأسبوع الثامن عشر", days: ["20/5<br>21/12", "21/5<br>22/12", "22/5<br>23/12", "23/5<br>24/12", "24/5<br>25/12"] },
+      { title: "الأسبوع التاسع عشر", days: ["27/5<br>28/12", "28/5<br>29/12", "29/5<br>30/12", "1/6<br>31/12", "2/6<br>1/1"] }
+    ];
+
+    weeks.forEach(week => {
+      document.write(`<div class="week">
+        <div class="title">${week.title}</div>
+        <div class="days">
+          ${week.days.map(day => `<div class="day">${day}</div>`).join('')}
+        </div>
+      </div>`);
+    });
+  </script>
+</body>
+</html>
